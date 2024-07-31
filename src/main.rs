@@ -5,14 +5,15 @@ fn main() {
     println!("welcome to my first rust mini project!");
 
     let secret_num: u32 = rand::thread_rng().gen_range(0..=420);
-    //let mut is_win:bool = false;
+
     loop // loop allows to keep this code running within loop
     {
         println!("\n Enter your guess:");
 
         let mut guess: String = String::new();
         
-        //in this  below implementation, expect panics and quits the program, to avoid this, imma use match
+        
+        //in this below implementation, expect panics and quits the program, to avoid this, imma use match
 
         // io::stdin().read_line(&mut guess).expect("No line read!");
 
