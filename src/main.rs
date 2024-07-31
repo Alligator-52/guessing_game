@@ -11,9 +11,32 @@ fn main() {
         println!("\n Enter your guess:");
 
         let mut guess: String = String::new();
-        io::stdin().read_line(&mut guess).expect("No line read!");
+        
+        //in this  below implementation, expect panics and quits the program, to avoid this, imma use match
 
-        let guess: u32 = guess.trim().parse().expect("Please enter a number!");
+        // io::stdin().read_line(&mut guess).expect("No line read!");
+
+        // let guess: u32 = guess.trim().parse().expect("Please enter a number!");
+
+        match io::stdin().read_line(&mut guess) 
+        {
+            Ok(_) => (),
+            Err(_) => 
+            {
+                println!("Failed to read line. Please try again:");
+                continue;
+            }   
+        }
+
+        let guess: u32 = match guess.trim().parse()
+        {
+            Ok(num) => num,
+            Err(_) =>
+            {
+                println!("The entry was not valid, please enter a valid number:");
+                continue;
+            }    
+        };
 
         //if else implement
 
