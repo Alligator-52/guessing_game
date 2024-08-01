@@ -11,13 +11,24 @@ fn main() {
         println!("\n Enter your guess:");
 
         let mut guess: String = String::new();
-        
+        let mut some_num:u8;
         
         //in this below implementation, expect panics and quits the program, to avoid this, imma use match
 
         // io::stdin().read_line(&mut guess).expect("No line read!");
 
         // let guess: u32 = guess.trim().parse().expect("Please enter a number!");
+        println!("this num wont do anything just taking input: ");
+
+        match io::stdin().read_line(some_num).trim().parse() // this doesnt work in rust. we cant directly take an it input 
+        {
+            Ok(_) => (),
+            Err(_) => 
+            {
+                print!("Invalid number size, try again");
+                continue;
+            }    
+        }
 
         match io::stdin().read_line(&mut guess) // we have to type in &mut because of ownership
         {
