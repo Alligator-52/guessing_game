@@ -19,7 +19,7 @@ fn main() {
 
         // let guess: u32 = guess.trim().parse().expect("Please enter a number!");
 
-        match io::stdin().read_line(&mut guess) 
+        match io::stdin().read_line(&mut guess) // we have to type in &mut because of ownership
         {
             Ok(_) => (),
             Err(_) => 
